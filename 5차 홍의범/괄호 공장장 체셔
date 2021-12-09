@@ -1,0 +1,56 @@
+## 문제 설명
+
+용사와 악당의 결투를 문자열로 받아 방어에 성공했는지 판별  <br>
+
+
+## 자료 구조
+- num  <br>
+타입 : int <br>
+실행횟수 정하는 변수
+
+- string  <br>
+타입 : list <br>
+입력된 소괄호
+
+- count  <br>
+타입 : int <br>
+"(" 의 갯수를 카운팅에 필요한 변수
+
+- err  <br>
+타입 : int <br>
+첫번쨰 ")" 오거나 반복이 끝날 때 올바르지 않는 문자열을 카운팅에 필요한 변수
+
+## 풀이 과정
+예시 :
+```txt
+1. num, string을 입력받습니다.
+2. count, err 변수 디폴트 값 0을 할당 해줍니다.
+3. 반복문을 돌면서 "(" 값이라면 count +1 ")" 라면 count -1 첫번째 ")" 거나 잘못된 값 이면 err += 1 해줍니다. 
+
+```
+
+## 코드 구현
+```python
+
+num = int(input())
+string = list(input())
+
+count = 0
+err = 0
+
+for i in range(num):
+    if string[i] == "(":                
+        count += 1
+        
+    elif count > 0:                     
+        count -= 1
+        
+    else:                               
+        err += 1
+            
+print( (num - count) - err)
+
+```
+
+
+점수 : 100/100 <br>
